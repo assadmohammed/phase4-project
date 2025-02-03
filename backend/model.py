@@ -2,13 +2,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from config import db
 
-# User Model: Defines customers and admins
+# User Model
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(255), nullable=False)  # Password is hashed
+    password = db.Column(db.String(255), nullable=False) 
     is_admin = db.Column(db.Boolean, default=False)
 
 
@@ -25,21 +25,21 @@ class User(db.Model):
             "is_admin": self.is_admin
         }
 
-    # Hash the password before saving it
+    
     def set_password(self, password):
         self.password = generate_password_hash(password)
 
-    # Check if the entered password matches the hashed password
+    
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-# Travel Package Model: Defines the tour packages available
+# Travel Package 
 class Package(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String(500), nullable=True)
     price = db.Column(db.Float, nullable=False)
-    duration = db.Column(db.Integer, nullable=False)  # Duration in days
+    duration = db.Column(db.Integer, nullable=False)  
     start_date = db.Column(db.Date, nullable=False)
 
     def __repr__(self):
@@ -55,7 +55,7 @@ class Package(db.Model):
             "start_date": self.start_date.isoformat()
         }
 
-# Booking Model: Tracks customer bookings for packages
+# Booking Model
 class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -78,7 +78,7 @@ class Booking(db.Model):
             "status": self.status
         }
 
-# Review Model: Stores reviews left by customers for packages
+# Review Model
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -108,7 +108,7 @@ class ContactUs(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), nullable=False)
     description = db.Column(db.String(500), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)  # Optional: associate with a user
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)  
 
     user = db.relationship('User', backref=db.backref('contact_requests', lazy=True))
 
