@@ -1,0 +1,36 @@
+.hero {
+  height: 80vh;
+  background-image: url('../../public/images/dolphin.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(98, 0, 234, 0.3);
+  background-blend-mode: multiply;
+  position: relative;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+}
+
+.hero-text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+}

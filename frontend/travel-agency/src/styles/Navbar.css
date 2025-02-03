@@ -1,0 +1,66 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Brand styling */
+.navbar-brand h1 {
+  color: #6200ea;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold; /* Make the brand name stand out */
+}
+
+/* Links container */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Auth links container */
+.navbar-auth {
+  display: flex;
+  gap: 1rem;
+  align-items: center; /* Align items vertically */
+}
+
+/* General link styling */
+.navbar a {
+  text-decoration: none;
+  color: #6200ea;
+  font-size: 1.1rem;
+  transition: opacity 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Active link styling */
+.navbar a.active {
+  color: #ff6347; /* Highlight active link with a different color */
+  border-bottom: 2px solid #ff6347; /* Add an underline for active links */
+}
+
+/* Hover effect for links */
+.navbar a:hover {
+  opacity: 0.8;
+  color: #ff6347; /* Change color on hover */
+}
+
+/* Logout button styling */
+.logout-button {
+  background: none;
+  border: none;
+  color: #6200ea;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for logout button */
+.logout-button:hover {
+  opacity: 0.8;
+  color: #ff6347; /* Change color on hover */
+}
